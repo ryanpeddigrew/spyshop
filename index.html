@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPY SHOP GLOBAL // INTELLIGENCE. DELIVERED.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-void: #040605;
+      --bg-panel: #0A0F0C;
+      --bg-card: #0F1612;
+      --bg-elevated: #141E18;
+      --border-dim: #1C2E23;
+      --border-bright: #00FF41;
+      --neon-green: #00FF41;
+      --neon-mid: #16C63C;
+      --text-white: #FFFFFF;
+      --text-light: #D4E2D8;
+      --text-muted: #8FA395;
+      --danger: #FF3B3B;
+      --warn: #FFB800;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-void);
+      color: var(--text-white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-white);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    .container {
+      width: 100%;
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Top Navigation */
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 6, 5, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-white);
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 6px;
+      background: #08120B;
+      border: 1px solid var(--neon-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0, 255, 65, 0.25);
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: #FFFFFF;
+    }
+
+    .brand-title span {
+      color: var(--neon-green);
+    }
+
+    .brand-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--neon-green);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--neon-green);
+    }
+
+    /* Block Buttons */
+    .btn-block {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s ease;
+      line-height: 1.2;
+    }
+
+    .btn-primary {
+      background-color: var(--neon-green);
+      color: #030504;
+      border-color: var(--neon-green);
+      box-shadow: 0 0 24px rgba(0, 255, 65, 0.32);
+    }
+
+    .btn-primary:hover {
+      background-color: #39FF6A;
+      border-color: #39FF6A;
+      transform: translateY(-1px);
+      box-shadow: 0 0 32px rgba(0, 255, 65, 0.52);
+    }
+
+    .btn-secondary {
+      background-color: #0C140F;
+      color: #FFFFFF;
+      border-color: var(--neon-green);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(0, 255, 65, 0.14);
+      color: var(--neon-green);
+    }
+
+    .btn-sm {
+      padding: 10px 15px;
+      font-size: 11px;
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: #0C140F;
+      border: 1px solid var(--neon-green);
+      color: var(--neon-green);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mobile-drawer {
+      display: none;
+      background: #080D0A;
+      border-bottom: 1px solid var(--neon-green);
+      padding: 16px 20px 24px;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+      background: #0F1712;
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+    }
+
+    /* MODERN MATRIX HERO HEADER */
+    .hero-matrix-header {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid var(--neon-green);
+      overflow: hidden;
+      background: #030504;
+      padding: 60px 0 68px;
+    }
+
+    #matrix-hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 1;
+      opacity: 0.72;
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 75% 50%, rgba(0, 255, 65, 0.08) 0%, rgba(3, 5, 4, 0.86) 65%),
+        linear-gradient(90deg, rgba(3, 5, 4, 0.94) 0%, rgba(3, 5, 4, 0.78) 55%, rgba(3, 5, 4, 0.65) 100%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10, 20, 14, 0.92);
+      border: 1px solid var(--neon-green);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--neon-green);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--neon-green);
+      box-shadow: 0 0 10px var(--neon-green);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.8); }
+    }
+
+    .hero-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline .accent {
+      color: var(--neon-green);
+      text-shadow: 0 0 24px rgba(0, 255, 65, 0.45);
+    }
+
+    .hero-subtext-block {
+      background: rgba(8, 14, 10, 0.92);
+      border-left: 4px solid var(--neon-green);
+      border-top: 1px solid var(--border-dim);
+      border-right: 1px solid var(--border-dim);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 18px 20px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 26px;
+      max-width: 620px;
+    }
+
+    .hero-subtext-block p {
+      font-size: 15px;
+      color: #E8F2EC;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 620px;
+    }
+
+    .metric-box {
+      background: rgba(9, 15, 11, 0.94);
+      border: 1px solid var(--border-dim);
+      padding: 12px 14px;
+      border-radius: 4px;
+    }
+
+    .metric-box .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric-box .val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--neon-green);
+      margin-top: 4px;
+    }
+
+    /* Hero Radar Terminal Card */
+    .radar-terminal {
+      background: rgba(8, 13, 10, 0.95);
+      border: 1px solid var(--neon-green);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 40px rgba(0, 255, 65, 0.16);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--neon-green);
+    }
+
+    .radar-disc {
+      position: relative;
+      width: 230px;
+      height: 230px;
+      margin: 12px auto 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #0D1F13 0%, #040805 100%);
+      border: 2px solid var(--neon-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .radar-sweep {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(0, 255, 65, 0.42) 0deg, rgba(0, 255, 65, 0.05) 65deg, transparent 100deg);
+      animation: spinRadar 4.5s linear infinite;
+    }
+
+    @keyframes spinRadar {
+      to { transform: rotate(360deg); }
+    }
+
+    .radar-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 255, 65, 0.3);
+    }
+
+    .radar-cross-h {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: rgba(0, 255, 65, 0.25);
+    }
+
+    .radar-cross-v {
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      background: rgba(0, 255, 65, 0.25);
+    }
+
+    .radar-center-tag {
+      position: relative;
+      z-index: 4;
+      background: #040705;
+      border: 1px solid var(--neon-green);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--neon-green);
+    }
+
+    .terminal-readout-block {
+      background: #050806;
+      border: 1px solid var(--border-dim);
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* Trust Strip */
+    .trust-bar {
+      background: #080C09;
+      border-bottom: 1px solid var(--border-dim);
+      padding: 20px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      border-left: 3px solid var(--neon-green);
+      padding-left: 14px;
+    }
+
+    .trust-item .t-head {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .trust-item .t-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Sections */
+    section.section-block {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--neon-green);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-subtext-block {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-left: 3px solid var(--neon-green);
+      padding: 14px 18px;
+      border-radius: 4px;
+      max-width: 820px;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    /* INTERACTIVE SUITE (11 TOOLS) */
+    .tool-tabs-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tool-tab-btn {
+      padding: 12px 14px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer;
+      background: #0D1410;
+      color: #FFFFFF;
+      border: 1px solid var(--border-dim);
+      transition: all 0.15s ease;
+    }
+
+    .tool-tab-btn:hover {
+      border-color: var(--neon-green);
+      color: var(--neon-green);
+    }
+
+    .tool-tab-btn.active {
+      background: var(--neon-green);
+      color: #030504;
+      border-color: var(--neon-green);
+      box-shadow: 0 0 18px rgba(0, 255, 65, 0.28);
+    }
+
+    .tool-workspace {
+      background: var(--bg-panel);
+      border: 1px solid var(--neon-green);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 0 32px rgba(0, 255, 65, 0.08);
+    }
+
+    .tool-view {
+      display: none;
+    }
+
+    .tool-view.active {
+      display: block;
+    }
+
+    .builder-layout {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 28px;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    .control-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--neon-green);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .choice-card {
+      text-align: left;
+      padding: 14px 16px;
+      border-radius: 6px;
+      background: #0F1713;
+      border: 2px solid var(--border-dim);
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .choice-card:hover {
+      border-color: var(--neon-mid);
+    }
+
+    .choice-card.selected {
+      background: #112217;
+      border-color: var(--neon-green);
+      box-shadow: 0 0 18px rgba(0, 255, 65, 0.18);
+    }
+
+    .choice-card .c-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .choice-card .c-desc {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .toggle-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .toggle-btn {
+      padding: 12px 14px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: #0F1713;
+      color: #FFFFFF;
+      border: 2px solid var(--border-dim);
+    }
+
+    .toggle-btn.selected {
+      background: var(--neon-green);
+      color: #030504;
+      border-color: var(--neon-green);
+    }
+
+    .checkbox-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 15px;
+      background: #0F1713;
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-block:hover {
+      border-color: var(--neon-green);
+    }
+
+    .checkbox-block input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--neon-green);
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    .checkbox-block .cb-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .checkbox-block .cb-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Manifest Summary Box */
+    .manifest-box {
+      background: #060A08;
+      border: 2px solid var(--neon-green);
+      border-radius: 6px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .manifest-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--neon-green);
+    }
+
+    .manifest-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+
+    .manifest-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 22px;
+    }
+
+    .manifest-list li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-light);
+      padding: 8px 10px;
+      background: #0D1510;
+      border-left: 2px solid var(--neon-green);
+    }
+
+    .manifest-total-row {
+      border-top: 1px solid var(--border-dim);
+      padding-top: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .manifest-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--neon-green);
+    }
+
+    /* Bento & Catalog Grids */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bento-card:hover {
+      border-color: var(--neon-green);
+    }
+
+    .bento-span-2 {
+      grid-column: span 2;
+    }
+
+    .bento-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--neon-green);
+      margin-bottom: 8px;
+    }
+
+    .bento-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .bento-text-block {
+      background: #060907;
+      border: 1px solid var(--border-dim);
+      padding: 12px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      border-color: var(--neon-green);
+    }
+
+    .product-card.hidden {
+      display: none;
+    }
+
+    /* Form Controls */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .input-field, .select-field, .textarea-field {
+      width: 100%;
+      background: #060A08;
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 12px 14px;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+    }
+
+    .input-field:focus, .select-field:focus, .textarea-field:focus {
+      outline: none;
+      border-color: var(--neon-green);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--neon-green);
+      cursor: pointer;
+    }
+
+    /* Vehicle Hotspot Diagram */
+    .car-zone-btn {
+      padding: 10px 12px;
+      background: #0F1713;
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .car-zone-btn.active, .car-zone-btn:hover {
+      border-color: var(--neon-green);
+      background: #13251A;
+      color: var(--neon-green);
+    }
+
+    /* Matrix Footer */
+    footer.matrix-footer {
+      position: relative;
+      background: #030504;
+      border-top: 2px solid var(--neon-green);
+      padding: 64px 0 40px;
+      overflow: hidden;
+    }
+
+    #matrix-footer-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .footer-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(3, 5, 4, 0.88) 0%, rgba(3, 5, 4, 0.94) 100%);
+      pointer-events: none;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 32px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .footer-list a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-list a:hover {
+      color: var(--neon-green);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .builder-layout {
+        grid-template-columns: 1fr;
+      }
+      .bento-grid, .catalog-grid, .footer-cols {
+        grid-template-columns: 1fr 1fr;
+      }
+      .bento-span-2 {
+        grid-column: span 2;
+      }
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links, .nav-desktop-cta {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-block;
+      }
+      .scenario-grid, .bento-grid, .catalog-grid, .footer-cols, .form-grid, .hero-metrics-strip {
+        grid-template-columns: 1fr;
+      }
+      .bento-span-2 {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand-lockup">
+        <div class="brand-badge" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="#00FF41" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4" stroke="#00FF41" stroke-width="1.4" stroke-dasharray="2 2"/>
+            <circle cx="12" cy="12" r="2" fill="#00FF41"/>
+            <path d="M12 12L18 6" stroke="#00FF41" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">SPY SHOP <span>GLOBAL</span></div>
+          <div class="brand-sub">INTELLIGENCE. DELIVERED.</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Menu">
+        <a href="#mission-builder">11 Tactical Apps</a>
+        <a href="#capabilities">Revenue &amp; Ops</a>
+        <a href="#catalog">Hardware &amp; Rentals</a>
+        <a href="#vault">Top Secret Vault</a>
+      </nav>
+
+      <div class="nav-desktop-cta">
+        <a href="#briefing" class="btn-block btn-primary btn-sm">Request Briefing &rarr;</a>
+      </div>
+
+      <button type="button" id="mobile-toggle" class="mobile-toggle" aria-expanded="false">MENU</button>
+    </div>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <a href="#mission-builder">01. 11 Interactive Tactical Tools</a>
+      <a href="#capabilities">02. Revenue Streams &amp; Ops</a>
+      <a href="#catalog">03. Hardware &amp; Rentals Catalog</a>
+      <a href="#vault">04. Top Secret Vault</a>
+      <a href="#briefing" class="btn-block btn-primary">Request Briefing</a>
+    </div>
+  </header>
+
+  <!-- MODERN MATRIX HERO HEADER -->
+  <section id="top" class="hero-matrix-header">
+    <canvas id="matrix-hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <div class="container hero-grid">
+      <div>
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>FIELD-TESTED BY AVENTUS INVESTIGATIONS // WORLDWIDE SHIPPING</span>
+        </div>
+
+        <h1 class="hero-headline">
+          TACTICAL SURVEILLANCE &amp; <span class="accent">COUNTER-INTEL</span> GEAR.
+        </h1>
+
+        <div class="hero-subtext-block">
+          <p>
+            Deploy investigator-verified RF bug detectors, 4K covert optics, audio anti-recording jammers, and encrypted GPS trackers. Buy outright, rent by the week, or dispatch a licensed Aventus field team.
+          </p>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#mission-builder" class="btn-block btn-primary">Launch Mission Builder &rarr;</a>
+          <a href="#catalog" class="btn-block btn-secondary">Browse Full Catalog</a>
+        </div>
+
+        <div class="hero-metrics-strip">
+          <div class="metric-box">
+            <div class="label">RF Scan Spectrum</div>
+            <div class="val">1MHz – 12GHz</div>
+          </div>
+          <div class="metric-box">
+            <div class="label">Global Dispatch</div>
+            <div class="val">&lt; 24H PLAIN BOX</div>
+          </div>
+          <div class="metric-box">
+            <div class="label">Interactive Suite</div>
+            <div class="val">11 LIVE TOOLS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Radar Terminal -->
+      <div class="radar-terminal">
+        <div class="terminal-top">
+          <span>SSG-SAT // LIVE_RADAR_NODE</span>
+          <span id="live-utc">00:00:00 UTC</span>
+        </div>
+
+        <div class="radar-disc" aria-hidden="true">
+          <div class="radar-sweep"></div>
+          <div class="radar-ring" style="width: 175px; height: 175px;"></div>
+          <div class="radar-ring" style="width: 115px; height: 115px;"></div>
+          <div class="radar-ring" style="width: 60px; height: 60px;"></div>
+          <div class="radar-cross-h"></div>
+          <div class="radar-cross-v"></div>
+          <div class="radar-center-tag">SECTOR LOCK // 43.65° N</div>
+        </div>
+
+        <div class="terminal-readout-block">
+          <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+            <span style="color:#00FF41;">[OK] RF SPECTRUM CLEAR</span>
+            <span>4G/5G SIM: READY</span>
+          </div>
+          <div style="color:#8FA395;">
+            PARTNER VERIFICATION: @AVENTUSINVESTIGATIONS // TORONTO &amp; GLOBAL
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-bar">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="t-head">AVENTUS INVESTIGATIONS</div>
+        <div class="t-sub">Licensed PI Field-Tested Hardware</div>
+      </div>
+      <div class="trust-item">
+        <div class="t-head">7-DAY TACTICAL RENTALS</div>
+        <div class="t-sub">Rent Pro Gear at 20% of Retail</div>
+      </div>
+      <div class="trust-item">
+        <div class="t-head">MONTHLY OR ANNUAL SIMS</div>
+        <div class="t-sub">$29/mo or $279/yr Prepaid Telemetry</div>
+      </div>
+      <div class="trust-item">
+        <div class="t-head">NET-30 B2B &amp; LAW FIRMS</div>
+        <div class="t-sub">Volume Quotes &amp; Corporate Retainers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 01: COMPLETE 11-TOOL INTERACTIVE TACTICAL SUITE -->
+  <section id="mission-builder" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">// 01. COMPLETE A LA CARTE INTERACTIVE SUITE (11 TOOLS)</span>
+        <h2 class="section-title">Mission Builder, Calculators &amp; Sweep Wizards</h2>
+        <div class="section-subtext-block">
+          Select any tool below to configure custom gear kits, check RF bug bands, inspect vehicle/hotel hiding spots, calculate SD storage, compare Buy vs. Rent vs. Hire-a-PI, or generate a B2B Net-30 quote.
+        </div>
+      </div>
+
+      <!-- 11-Tool Tab Grid -->
+      <div class="tool-tabs-bar" role="tablist">
+        <button type="button" class="tool-tab-btn active" data-target="view-builder">01. Mission Loadout Builder</button>
+        <button type="button" class="tool-tab-btn" data-target="view-tscm">02. TSCM Bug-Sweep Calc</button>
+        <button type="button" class="tool-tab-btn" data-target="view-band">03. Frequency &amp; Bug Finder</button>
+        <button type="button" class="tool-tab-btn" data-target="view-vehicle">04. Vehicle Sweep Hotspot Map</button>
+        <button type="button" class="tool-tab-btn" data-target="view-hotel">05. Hotel / Airbnb Sweep Check</button>
+        <button type="button" class="tool-tab-btn" data-target="view-fov">06. Camera FOV Simulator</button>
+        <button type="button" class="tool-tab-btn" data-target="view-storage">07. SD Storage &amp; Runtime Calc</button>
+        <button type="button" class="tool-tab-btn" data-target="view-gps">08. GPS Battery Estimator</button>
+        <button type="button" class="tool-tab-btn" data-target="view-wizard">09. Buy vs Rent vs PI Wizard</button>
+        <button type="button" class="tool-tab-btn" data-target="view-b2b">10. B2B / Law Firm Quote Calc</button>
+        <button type="button" class="tool-tab-btn" data-target="view-legal">11. Regional Compliance Check</button>
+      </div>
+
+      <div class="tool-workspace">
+        <!-- 01. MISSION LOADOUT BUILDER -->
+        <div id="view-builder" class="tool-view active">
+          <div class="builder-layout">
+            <div>
+              <div class="control-group">
+                <label class="control-label">Step 1: Select Operational Scenario</label>
+                <div class="scenario-grid">
+                  <button type="button" class="choice-card selected" data-scen="vehicle">
+                    <div class="c-title">Vehicle Counter-Tracking</div>
+                    <div class="c-desc">Sweep wheel wells &amp; chassis for magnetic GPS trackers</div>
+                  </button>
+                  <button type="button" class="choice-card" data-scen="office">
+                    <div class="c-title">Home / Office Bug Sweep</div>
+                    <div class="c-desc">Detect wireless audio bugs &amp; hidden pinhole lenses</div>
+                  </button>
+                  <button type="button" class="choice-card" data-scen="covert">
+                    <div class="c-title">Covert Property Monitoring</div>
+                    <div class="c-desc">4K concealed smoke/clock camera + motion alerts</div>
+                  </button>
+                  <button type="button" class="choice-card" data-scen="speech">
+                    <div class="c-title">Boardroom Speech Privacy</div>
+                    <div class="c-desc">Ultrasonic anti-recording jammer + Faraday phone case</div>
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Step 2: Acquisition &amp; SIM Billing Cycle</label>
+                <div class="toggle-pair">
+                  <button type="button" id="acq-buy" class="toggle-btn selected">Buy Outright (Full Ownership)</button>
+                  <button type="button" id="acq-rent" class="toggle-btn">7-Day Tactical Rental (20% Price)</button>
+                </div>
+              </div>
+
+              <div class="control-group" style="margin-bottom:0;">
+                <label class="control-label">Step 3: Recurring Plans &amp; Priority Dispatch Add-Ons</label>
+                <label class="checkbox-block">
+                  <input type="checkbox" id="opt-sim" checked />
+                  <div>
+                    <div class="cb-title">Global 4G SIM + Cloud Telemetry ($29/mo or $279/yr Prepaid)</div>
+                    <div class="cb-sub">Multi-carrier SIM pre-installed with live iOS/web tracking portal.</div>
+                  </div>
+                </label>
+                <label class="checkbox-block">
+                  <input type="checkbox" id="opt-sim-annual" />
+                  <div>
+                    <div class="cb-title">Upgrade SIM to 12-Month Prepaid Annual Plan ($279/yr — Save $69)</div>
+                    <div class="cb-sub">One-time annual billing with priority cellular roaming.</div>
+                  </div>
+                </label>
+                <label class="checkbox-block">
+                  <input type="checkbox" id="opt-pi" />
+                  <div>
+                    <div class="cb-title">Aventus Investigations On-Site PI Briefing / Rush Dispatch (+$250)</div>
+                    <div class="cb-sub">Same-day priority setup or on-site sweep scheduling with a licensed investigator.</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>RECOMMENDED MANIFEST</span>
+                  <span id="out-code">KIT-VEH-01</span>
+                </div>
+                <div id="out-title" class="manifest-title">Vehicle Counter-Tracking Kit</div>
+                <ul id="out-list" class="manifest-list">
+                  <li>+ SSG-RF900 Wideband RF &amp; GPS Bug Detector</li>
+                  <li>+ Under-Chassis Inspection Mirror + Tactical LED</li>
+                  <li>+ Dual-Layer Faraday Keyfob &amp; Phone Shield</li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="manifest-total-row">
+                  <span class="font-mono" style="font-size:12px; color:#8FA395;">ESTIMATED TOTAL</span>
+                  <div style="text-align:right;">
+                    <div id="out-price" class="manifest-price">$449</div>
+                    <div id="out-sub" class="font-mono" style="font-size:11px; color:#00FF41;">+ $29/mo telemetry plan</div>
+                  </div>
+                </div>
+                <button type="button" id="send-manifest-btn" class="btn-block btn-primary btn-full">
+                  Lock In Manifest &amp; Request Invoice &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02. TSCM BUG-SWEEP RISK CALCULATOR -->
+        <div id="view-tscm" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <label class="control-label">Check All Active Surveillance Warning Signs</label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="tscm-box" value="25" />
+                <div>
+                  <div class="cb-title">Active litigation, divorce, custody battle, or IP dispute (+25)</div>
+                  <div class="cb-sub">Highest statistical correlation with unauthorized tracking or audio bugs.</div>
+                </div>
+              </label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="tscm-box" value="25" />
+                <div>
+                  <div class="cb-title">Third parties know confidential details spoken only indoors or in car (+25)</div>
+                  <div class="cb-sub">Indicates active GSM/Wi-Fi room transmitter or compromised mobile device.</div>
+                </div>
+              </label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="tscm-box" value="20" />
+                <div>
+                  <div class="cb-title">Unfamiliar USB chargers, smoke detectors, or gifts in private rooms (+20)</div>
+                  <div class="cb-sub">Common housings for 4K pinhole optics and continuous AC-powered bugs.</div>
+                </div>
+              </label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="tscm-box" value="15" />
+                <div>
+                  <div class="cb-title">Unknown Bluetooth tracker alerts or rapid vehicle battery drain (+15)</div>
+                  <div class="cb-sub">Suggests OBD-II port tracker or magnetic chassis beacon.</div>
+                </div>
+              </label>
+              <label class="checkbox-block" style="margin-bottom:0;">
+                <input type="checkbox" class="tscm-box" value="15" />
+                <div>
+                  <div class="cb-title">Signs of wall-plate tampering or unexplained entry with nothing stolen (+15)</div>
+                  <div class="cb-sub">Classic indicator of physical covert device installation.</div>
+                </div>
+              </label>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>TSCM THREAT INDEX</span>
+                  <span>DIAGNOSTIC</span>
+                </div>
+                <div id="tscm-score-val" class="manifest-price" style="font-size:48px; margin-bottom:8px;">0 / 100</div>
+                <div id="tscm-status" class="font-mono" style="font-size:12px; font-weight:800; color:#00FF41; margin-bottom:14px;">
+                  LOW EXPOSURE — PREVENTIVE SELF-SWEEP
+                </div>
+                <div class="section-subtext-block" style="margin-bottom:20px;">
+                  <span id="tscm-desc">Select warning signs on the left to determine whether a DIY RF detector or a licensed Aventus TSCM sweep is recommended.</span>
+                </div>
+              </div>
+              <button type="button" id="tscm-book-btn" class="btn-block btn-primary btn-full">
+                Book Recommended Sweep / Detector &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03. FREQUENCY BAND & BUG-TYPE FINDER -->
+        <div id="view-band" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <label class="control-label" for="band-select">What Suspected Device Are You Looking For?</label>
+              <select id="band-select" class="select-field" style="margin-bottom:18px;">
+                <option value="wifi">Wi-Fi Live-Streaming IP Camera (Clock / Smoke / Charger)</option>
+                <option value="gps">4G / LTE Real-Time Vehicle GPS Tracker</option>
+                <option value="ble">Bluetooth Low Energy (BLE) AirTag / Tile Beacon</option>
+                <option value="gsm">Cellular SIM Audio Bug / Room Transmitter</option>
+                <option value="wired">Non-Transmitting / Hardwired Pinhole Camera (SD Card)</option>
+              </select>
+
+              <div class="bento-text-block" id="band-details">
+                <div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">
+                  TARGET RF BAND: 2.4 GHz &amp; 5.8 GHz IEEE 802.11 BURSTS
+                </div>
+                <p style="margin-bottom:8px;"><strong>Common Concealment Spots:</strong> Smoke alarms, USB wall blocks, alarm clocks, router shelves, air purifiers.</p>
+                <p><strong>Sweep Protocol:</strong> Switch SSG-RF900 to 2.4/5GHz Digital Burst mode, dim room lights, and scan reflective glass with the red IR lens viewfinder.</p>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>MATCHED COUNTER-MEASURE</span>
+                  <span>PROTOCOL</span>
+                </div>
+                <div id="band-gear-title" class="manifest-title">SSG-RF900 Wideband RF &amp; IR Lens Detector</div>
+                <div class="section-subtext-block" style="margin-bottom:18px;" id="band-gear-note">
+                  Detects active Wi-Fi packet bursts and highlights hidden camera lenses at up to 25 feet.
+                </div>
+              </div>
+              <button type="button" id="band-order-btn" class="btn-block btn-primary btn-full">
+                Select Matched Detector &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04. VEHICLE SWEEP HOTSPOT MAP -->
+        <div id="view-vehicle" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <label class="control-label">Click Any High-Probability Vehicle Zone to Inspect</label>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
+                <button type="button" class="car-zone-btn active" data-zone="wheel">01. Wheel Wells &amp; Fender Liners</button>
+                <button type="button" class="car-zone-btn" data-zone="bumper">02. Rear Bumper &amp; Tow Hitch</button>
+                <button type="button" class="car-zone-btn" data-zone="obd">03. OBD-II Diagnostic Port</button>
+                <button type="button" class="car-zone-btn" data-zone="rails">04. Undercarriage Frame Rails</button>
+                <button type="button" class="car-zone-btn" data-zone="cabin">05. Under Seats &amp; Trunk Liner</button>
+                <button type="button" class="car-zone-btn" data-zone="cowl">06. Windshield Wiper Cowl / Engine Bay</button>
+              </div>
+
+              <div class="bento-text-block" id="zone-readout">
+                <div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">
+                  ZONE 01: WHEEL WELLS &amp; FENDER LINERS (HIGHEST FREQUENCY)
+                </div>
+                <p>Magnetic waterproof trackers are most commonly slapped onto the flat metal lip inside the rear wheel arch in under 5 seconds. Use a telescoping inspection mirror + flashlight and sweep with the SSG-RF900 while the vehicle is in Drive/motion.</p>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>VEHICLE TSCM KIT</span>
+                  <span>6-POINT CHECK</span>
+                </div>
+                <div class="manifest-title">Vehicle Counter-Tracking Sweep Pack</div>
+                <ul class="manifest-list">
+                  <li>+ SSG-RF900 Cellular/GPS Burst Detector</li>
+                  <li>+ Telescoping Under-Car Mirror + LED</li>
+                  <li>+ Professional PI Vehicle Sweep Option ($495)</li>
+                </ul>
+              </div>
+              <button type="button" id="veh-order-btn" class="btn-block btn-primary btn-full">
+                Order Vehicle Sweep Kit / PI Sweep &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05. HOTEL / AIRBNB SWEEP WALKTHROUGH -->
+        <div id="view-hotel" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <label class="control-label">Interactive Room-by-Room Privacy Checklist</label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="hotel-chk" />
+                <div>
+                  <div class="cb-title">1. Smoke Detectors &amp; Ceiling Sprinklers</div>
+                  <div class="cb-sub">Check for off-center pinhole apertures or status LEDs facing the bed/desk.</div>
+                </div>
+              </label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="hotel-chk" />
+                <div>
+                  <div class="cb-title">2. Bedside USB Wall Chargers &amp; Alarm Clocks</div>
+                  <div class="cb-sub">Unplug unfamiliar wall adapters and shine a phone flashlight at glossy clock faces.</div>
+                </div>
+              </label>
+              <label class="checkbox-block">
+                <input type="checkbox" class="hotel-chk" />
+                <div>
+                  <div class="cb-title">3. Bathroom Mirrors &amp; Air Vents</div>
+                  <div class="cb-sub">Perform the fingernail gap test on mirrors and check HVAC louvers for wires.</div>
+                </div>
+              </label>
+              <label class="checkbox-block" style="margin-bottom:0;">
+                <input type="checkbox" class="hotel-chk" />
+                <div>
+                  <div class="cb-title">4. Wi-Fi Router &amp; Smart TV Ports</div>
+                  <div class="cb-sub">Inspect Ethernet ports for rogue inline bridges and secure devices inside a Faraday sleeve.</div>
+                </div>
+              </label>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>TRAVEL SECURITY</span>
+                  <span id="hotel-progress">0 / 4 VERIFIED</span>
+                </div>
+                <div class="manifest-title">Executive Travel Sweep Pack ($329)</div>
+                <ul class="manifest-list">
+                  <li>+ Pocket IR Pinhole Lens Finder</li>
+                  <li>+ USB-C Data Blocker + Faraday Laptop Sleeve</li>
+                  <li>+ Laminated Travel Sweep SOP Card</li>
+                </ul>
+              </div>
+              <button type="button" id="hotel-order-btn" class="btn-block btn-primary btn-full">
+                Add Executive Travel Pack ($329) &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06. COVERT CAMERA FOV SIMULATOR -->
+        <div id="view-fov" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <div class="control-group">
+                <label class="control-label" for="fov-model">Select Concealed Camera Housing</label>
+                <select id="fov-model" class="select-field">
+                  <option value="156">SSG-SMK4K Smoke Detector Housing (156° Ultra-Wide Lens)</option>
+                  <option value="120">SSG-CLK4K Desk Clock Radio (120° Wide Lens)</option>
+                  <option value="90">SSG-USB4K Wall Charger Adapter (90° Standard Lens)</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="fov-rot">Aim Rotation Angle: <span id="fov-deg-text">45°</span></label>
+                <input type="range" id="fov-rot" min="0" max="360" value="45" />
+              </div>
+              <label class="checkbox-block">
+                <input type="checkbox" id="fov-night" checked />
+                <div>
+                  <div class="cb-title">940nm Invisible Infrared Night Vision Active</div>
+                  <div class="cb-sub">Zero red glow in pitch-black rooms up to 30ft range.</div>
+                </div>
+              </label>
+              <button type="button" id="fov-select-btn" class="btn-block btn-primary btn-full" style="margin-top:12px;">
+                Order This Camera Configuration &rarr;
+              </button>
+            </div>
+
+            <div class="manifest-box">
+              <div class="manifest-header">
+                <span>ROOM FLOORPLAN SIMULATOR</span>
+                <span>CLICK CANVAS TO PLACE</span>
+              </div>
+              <canvas id="fov-sim-canvas" width="460" height="270" style="width:100%; height:250px; background:#030504; border:1px solid #1C2E23; border-radius:4px; cursor:crosshair;"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07. RECORDING & SD STORAGE CALCULATOR -->
+        <div id="view-storage" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <div class="control-group">
+                <label class="control-label" for="sd-res">Video Recording Resolution</label>
+                <select id="sd-res" class="select-field">
+                  <option value="1080">1080p Full HD (H.265 High Efficiency — ~1.2 GB/hr)</option>
+                  <option value="2160" selected>4K UHD Ultra-Clear Evidence Mode (~3.8 GB/hr)</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="sd-size">MicroSD Card Capacity: <span id="sd-gb-text">128 GB</span></label>
+                <input type="range" id="sd-size" min="32" max="256" step="32" value="128" />
+              </div>
+              <div class="control-group" style="margin-bottom:0;">
+                <label class="control-label" for="sd-mode">Trigger Mode</label>
+                <select id="sd-mode" class="select-field">
+                  <option value="1">Continuous 24/7 Recording</option>
+                  <option value="4" selected>PIR Motion-Activated (~6 hrs active motion/day)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>STORAGE &amp; ARCHIVE CAPACITY</span>
+                  <span>H.265 ENCRYPTED</span>
+                </div>
+                <div id="sd-hours-out" class="manifest-price" style="font-size:42px; margin-bottom:8px;">33 HRS / 5.5 DAYS</div>
+                <div class="section-subtext-block" style="margin-bottom:18px;">
+                  Loop-overwrite enabled. Every covert camera ships with optional pre-formatted high-endurance MicroSD media.
+                </div>
+              </div>
+              <button type="button" id="sd-order-btn" class="btn-block btn-primary btn-full">
+                Add Camera + Pre-Formatted SD Card &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08. GPS BATTERY LIFE ESTIMATOR -->
+        <div id="view-gps" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <div class="control-group">
+                <label class="control-label" for="gps-battery">Select Battery Architecture</label>
+                <select id="gps-battery" class="select-field">
+                  <option value="3000">SSG-MicroLTE (3,000 mAh Compact Covert Pack)</option>
+                  <option value="10000" selected>SSG-MagPro 150 (10,000 mAh Weatherproof Magnetic Pack)</option>
+                  <option value="99999">SSG-OBD2 Continuous 12V Vehicle Port</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="gps-rate">Ping Update Interval: <span id="gps-rate-text">Every 60 Seconds</span></label>
+                <input type="range" id="gps-rate" min="1" max="4" value="2" />
+              </div>
+              <div class="control-group" style="margin-bottom:0;">
+                <label class="control-label" for="gps-hours">Daily Vehicle Drive Time: <span id="gps-hours-text">2.5 Hours / Day</span></label>
+                <input type="range" id="gps-hours" min="0.5" max="12" step="0.5" value="2.5" />
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>FIELD ENDURANCE ESTIMATE</span>
+                  <span>LTE TELEMETRY</span>
+                </div>
+                <div id="gps-est-days" class="manifest-price" style="font-size:48px; margin-bottom:8px;">68 DAYS</div>
+                <div class="section-subtext-block" style="margin-bottom:20px;">
+                  Includes deep-sleep accelerometer standby when parked and multi-carrier roaming.
+                </div>
+              </div>
+              <button type="button" id="gps-select-btn" class="btn-block btn-primary btn-full">
+                Reserve GPS Tracker + SIM &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09. BUY VS. RENT VS. HIRE-A-PI DECISION WIZARD -->
+        <div id="view-wizard" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <label class="control-label">What Is Your Primary Objective?</label>
+              <div class="scenario-grid">
+                <button type="button" class="choice-card wiz-btn selected" data-wiz="court">
+                  <div class="c-title">Court-Admissible Evidence</div>
+                  <div class="c-desc">Custody, infidelity, fraud, or workplace litigation</div>
+                </button>
+                <button type="button" class="choice-card wiz-btn" data-wiz="onetime">
+                  <div class="c-title">One-Time 7-Day Verification</div>
+                  <div class="c-desc">Short-term trip, vehicle check, or temporary monitoring</div>
+                </button>
+                <button type="button" class="choice-card wiz-btn" data-wiz="ongoing">
+                  <div class="c-title">Ongoing Fleet / Property Security</div>
+                  <div class="c-desc">Continuous asset tracking or multi-month protection</div>
+                </button>
+                <button type="button" class="choice-card wiz-btn" data-wiz="exec">
+                  <div class="c-title">C-Suite / Boardroom Privacy</div>
+                  <div class="c-desc">M&amp;A negotiations, IP defense, anti-recording</div>
+                </button>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>RECOMMENDED PATH</span>
+                  <span>ROI COMPARISON</span>
+                </div>
+                <div id="wiz-title" class="manifest-title">Hire Licensed Aventus Investigator</div>
+                <div class="section-subtext-block" id="wiz-desc" style="margin-bottom:18px;">
+                  When evidence must hold up in court, licensed PI surveillance + certified TSCM reporting ($650+) prevents chain-of-custody challenges.
+                </div>
+              </div>
+              <button type="button" id="wiz-action-btn" class="btn-block btn-primary btn-full">
+                Proceed With Recommended Option &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. B2B / LAW FIRM / AGENCY QUOTE & NET-30 ESTIMATOR -->
+        <div id="view-b2b" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <div class="control-group">
+                <label class="control-label" for="b2b-org">Organization Category</label>
+                <select id="b2b-org" class="select-field">
+                  <option value="Law Firm / Family & Litigation Practice">Law Firm / Litigation Practice</option>
+                  <option value="Licensed PI / Security Agency">Licensed PI / Corporate Security Agency</option>
+                  <option value="Commercial Fleet / Logistics Operator">Commercial Fleet / Asset Operator</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="b2b-qty">Hardware Unit Quantity: <span id="b2b-qty-text">10 Units</span></label>
+                <input type="range" id="b2b-qty" min="3" max="50" value="10" />
+              </div>
+              <div class="bento-text-block" style="margin-bottom:0;">
+                Volume Tiers: <strong>3–9 units (12% off)</strong> &bull; <strong>10–24 units (20% off)</strong> &bull; <strong>25+ units (28% off + Net-30 Terms)</strong>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>B2B PARTNER ESTIMATE</span>
+                  <span id="b2b-tier-tag">20% VOLUME TIER</span>
+                </div>
+                <div id="b2b-total-price" class="manifest-price">$2,790</div>
+                <div id="b2b-savings" class="font-mono" style="font-size:12px; color:#00FF41; margin-bottom:16px;">
+                  You save $700 vs. single-unit retail + Net-30 eligible
+                </div>
+              </div>
+              <button type="button" id="b2b-quote-btn" class="btn-block btn-primary btn-full">
+                Request Formal Net-30 Quote &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. REGIONAL LEGAL & COMPLIANCE QUICK-CHECK -->
+        <div id="view-legal" class="tool-view">
+          <div class="builder-layout">
+            <div>
+              <label class="control-label" for="reg-select">Select Deployment Jurisdiction</label>
+              <select id="reg-select" class="select-field" style="margin-bottom:16px;">
+                <option value="ca">Canada (Federal Criminal Code — One-Party Audio Consent)</option>
+                <option value="us1">United States — One-Party Consent States (e.g., NY, TX, FL)</option>
+                <option value="us2">United States — All-Party Consent States (e.g., CA, IL, PA, WA)</option>
+                <option value="eu">UK / European Union (GDPR &amp; RIPA Data Rules)</option>
+              </select>
+              <div class="bento-text-block" id="reg-notes" style="margin-bottom:0;">
+                <div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">
+                  CANADA // CRIMINAL CODE SECTION 184 &amp; PRIVACY RULES
+                </div>
+                <p>Audio recording is generally lawful when at least one party participating in the conversation consents (one-party consent). Video surveillance is prohibited where there is a reasonable expectation of privacy (washrooms/bedrooms), and GPS tracking should only be placed on vehicles you own or have legal authority to monitor.</p>
+              </div>
+            </div>
+
+            <div class="manifest-box">
+              <div>
+                <div class="manifest-header">
+                  <span>COMPLIANCE ADVISORY</span>
+                  <span>DISCLAIMER</span>
+                </div>
+                <div class="manifest-title">Lawful Deployment Verification</div>
+                <div class="section-subtext-block" style="margin-bottom:18px;">
+                  Need guidance on lawful evidence gathering for a specific dispute? Consult a licensed investigator at Aventus Investigations before deploying hardware.
+                </div>
+              </div>
+              <button type="button" id="reg-consult-btn" class="btn-block btn-primary btn-full">
+                Request Licensed PI Compliance Call &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: REVENUE STREAMS & CAPABILITIES BENTO -->
+  <section id="capabilities" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">// 02. GLOBAL COMPETITOR REVENUE ARCHITECTURE</span>
+        <h2 class="section-title">Hardware, Rentals, Speech Privacy &amp; Retainers</h2>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-span-2">
+          <div>
+            <div class="bento-tag">TIERED TSCM &amp; ON-SITE PI SWEEPS</div>
+            <h3 class="bento-title">Handheld Bug Detectors to Pro Spectrum Analyzers</h3>
+            <div class="bento-text-block">
+              Offer entry-level RF/lens detectors ($189–$389), multi-band GPS/cellular sweepers ($1,200+), or emergency same-day TSCM bug sweeps performed by Aventus Investigations ($650+).
+            </div>
+          </div>
+          <div>
+            <a href="#briefing" class="btn-block btn-secondary btn-sm">Schedule Priority TSCM Sweep &rarr;</a>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div>
+            <div class="bento-tag">BOARDROOM SPEECH PRIVACY</div>
+            <h3 class="bento-title">Ultrasonic Anti-Recording Jammers</h3>
+            <div class="bento-text-block">
+              Protect M&amp;A meetings and legal consultations with acoustic voice-maskers and ultrasonic microphone blockers.
+            </div>
+          </div>
+          <div>
+            <a href="#catalog" class="btn-block btn-secondary btn-sm">View Anti-Recording Gear &rarr;</a>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div>
+            <div class="bento-tag">7-DAY TACTICAL RENTALS</div>
+            <h3 class="bento-title">Weekly Equipment Rental Pool</h3>
+            <div class="bento-text-block">
+              Rent thermal imagers, RF detectors, or drop cameras for 7 days at 20% of retail price with pre-paid return labels.
+            </div>
+          </div>
+          <div>
+            <a href="#catalog" class="btn-block btn-secondary btn-sm">Browse Rental Rates &rarr;</a>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div>
+            <div class="bento-tag">RECURRING TELEMETRY</div>
+            <h3 class="bento-title">Monthly &amp; Annual 4G SIM Plans</h3>
+            <div class="bento-text-block">
+              Pre-provisioned multi-carrier SIM cards ($29/mo or $279/yr prepaid) bundled inside every GPS and 4G camera unit.
+            </div>
+          </div>
+          <div>
+            <a href="#mission-builder" class="btn-block btn-secondary btn-sm">Configure SIM Plan &rarr;</a>
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div>
+            <div class="bento-tag">DIY MODULES &amp; PLAYBOOKS</div>
+            <h3 class="bento-title">Pinhole DVR Kits &amp; Sweep SOPs</h3>
+            <div class="bento-text-block">
+              Custom DIY pinhole camera modules for bespoke builds plus instant-download TSCM &amp; OSINT field manuals ($49).
+            </div>
+          </div>
+          <div>
+            <a href="#catalog" class="btn-block btn-secondary btn-sm">Shop DIY &amp; Playbooks &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: EXPANDED FILTERABLE HARDWARE & RENTAL CATALOG -->
+  <section id="catalog" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">// 03. COMPLETE HARDWARE, RENTAL &amp; INTEL CATALOG</span>
+        <h2 class="section-title">Field-Verified Gear, Anti-Recording &amp; Services</h2>
+      </div>
+
+      <div class="filter-row">
+        <button type="button" class="btn-block btn-primary btn-sm cat-filter" data-cat="all">All Gear (9)</button>
+        <button type="button" class="btn-block btn-secondary btn-sm cat-filter" data-cat="tscm">Counter-Surveillance</button>
+        <button type="button" class="btn-block btn-secondary btn-sm cat-filter" data-cat="optics">Covert Optics &amp; DIY</button>
+        <button type="button" class="btn-block btn-secondary btn-sm cat-filter" data-cat="gps">GPS, Audio &amp; Faraday</button>
+        <button type="button" class="btn-block btn-secondary btn-sm cat-filter" data-cat="ops">PI Sweeps &amp; Playbooks</button>
+      </div>
+
+      <div class="catalog-grid">
+        <div class="product-card" data-cat="tscm">
+          <div>
+            <div class="bento-tag">SSG-RF900 // VERIFIED BY AVENTUS PI</div>
+            <h3 class="bento-title">Wideband RF &amp; IR Lens Detector</h3>
+            <div class="bento-text-block">
+              Detects 1MHz–12GHz wireless bugs, cellular mics, and pinhole camera lenses via pulsed optical array.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $389 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">/ $79 7-Day Rent</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SSG-RF900 Wideband RF & IR Lens Detector ($389 / $79 Rental)">
+              Select Unit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="tscm">
+          <div>
+            <div class="bento-tag">SSG-JAM360 // SPEECH PRIVACY</div>
+            <h3 class="bento-title">Ultrasonic Boardroom Anti-Recorder</h3>
+            <div class="bento-text-block">
+              360° ultrasonic transducer array blocks smartphone and covert voice recorders during confidential meetings.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $690 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">/ $139 7-Day Rent</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SSG-JAM360 Ultrasonic Boardroom Anti-Recorder ($690 / $139 Rent)">
+              Select Unit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="optics">
+          <div>
+            <div class="bento-tag">SSG-SMK4K // VERIFIED BY AVENTUS PI</div>
+            <h3 class="bento-title">4K Smoke Detector Covert Camera</h3>
+            <div class="bento-text-block">
+              156° wide pinhole lens, 940nm invisible IR night vision, PIR motion alerts, and 180-day standby battery.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $495 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">/ $99 7-Day Rent</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SSG-SMK4K 4K Smoke Detector Covert Camera ($495 / $99 Rental)">
+              Select Unit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="optics">
+          <div>
+            <div class="bento-tag">SSG-DIY4K // CUSTOM BUILD MODULE</div>
+            <h3 class="bento-title">DIY 4K Pinhole Ribbon Camera Kit</h3>
+            <div class="bento-text-block">
+              1mm micro lens on 8-inch ribbon cable with Wi-Fi/SD DVR module and 3,000mAh battery for custom enclosures.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $249 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">Outright</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SSG-DIY4K Pinhole Ribbon Camera Kit ($249)">
+              Select Unit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="gps">
+          <div>
+            <div class="bento-tag">SSG-MAG150 // GLOBAL 4G SIM READY</div>
+            <h3 class="bento-title">150-Day Magnetic GPS Tracker</h3>
+            <div class="bento-text-block">
+              IP67 weatherproof neodymium-magnet chassis tracker with 10-second live updates and tamper drop alerts.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $279 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">+ $29/mo or $279/yr SIM</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SSG-MAG150 150-Day Magnetic GPS Tracker ($279 + SIM)">
+              Select Unit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="gps">
+          <div>
+            <div class="bento-tag">SSG-FARADAY // RF SHIELDING BUNDLE</div>
+            <h3 class="bento-title">Tactical Faraday Bag &amp; USB Blocker Kit</h3>
+            <div class="bento-text-block">
+              Blocks cellular, GPS, Wi-Fi, Bluetooth, and keyfob relay attacks for phone, laptop, and vehicle fobs.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $89 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">3-Piece Shield Kit</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SSG-FARADAY Tactical Faraday Bag & USB Blocker Kit ($89)">
+              Select Unit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="ops">
+          <div>
+            <div class="bento-tag">AVENTUS-TSCM // LICENSED PI SERVICE</div>
+            <h3 class="bento-title">On-Site Residential / Vehicle Bug Sweep</h3>
+            <div class="bento-text-block">
+              Full thermal, physical, and RF spectrum inspection by licensed Aventus Investigations technicians.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $650+ <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">Standard / +$250 Rush</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="AVENTUS-TSCM On-Site Bug Sweep ($650+)">
+              Book Sweep &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="ops">
+          <div>
+            <div class="bento-tag">CORP-RETAINER // QUARTERLY PRIVACY</div>
+            <h3 class="bento-title">Executive &amp; Boardroom TSCM Retainer</h3>
+            <div class="bento-text-block">
+              Quarterly office sweeps, pre-meeting boardroom checks, and 2 executive travel privacy kits included.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $1,450 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">/ Quarter</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="CORP-RETAINER Executive & Boardroom TSCM Retainer ($1,450/qtr)">
+              Inquire Retainer &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="ops">
+          <div>
+            <div class="bento-tag">SOP-BUNDLE // INSTANT DIGITAL INTEL</div>
+            <h3 class="bento-title">Executive TSCM &amp; OSINT Field Manuals</h3>
+            <div class="bento-text-block">
+              3 investigator checklists covering hotel sweeps, vehicle tracker inspections, and data broker removal.
+            </div>
+          </div>
+          <div>
+            <div class="font-display" style="font-size:22px; font-weight:800; color:#00FF41; margin-bottom:12px;">
+              $49 <span style="font-size:12px; color:#D4E2D8; font-family:'JetBrains Mono';">Digital Bundle</span>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="SOP-BUNDLE Executive TSCM & OSINT Field Manuals ($49)">
+              Order Playbooks &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: TOP SECRET VAULT -->
+  <section id="vault" class="section-block">
+    <div class="container">
+      <div class="tool-workspace">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
+          <div style="max-width:600px;">
+            <span class="eyebrow">// TOP SECRET // RESTRICTED ACCESS</span>
+            <h2 class="section-title" style="font-size:28px;">VIP Custom Drops, Trade-Ins &amp; B2B Portal</h2>
+            <div class="section-subtext-block">
+              Enter clearance code <strong style="color:#00FF41;">INTEL26</strong> to unlock limited custom-built nodes, 640px thermal monoculars, and hardware trade-in credits.
+            </div>
+          </div>
+
+          <form id="vault-form" style="display:flex; flex-wrap:wrap; gap:10px;">
+            <input type="text" id="vault-pass" class="input-field" style="width:220px;" placeholder="Enter code: INTEL26" />
+            <button type="submit" class="btn-block btn-primary">Decrypt Vault &rarr;</button>
+          </form>
+        </div>
+
+        <div id="vault-error" class="font-mono" style="color:#FF3B3B; font-size:12px; margin-top:12px; display:none;">
+          INVALID CLEARANCE CODE. ENTER "INTEL26" TO PREVIEW VAULT DROPS.
+        </div>
+
+        <div id="vault-items" style="display:none; margin-top:28px; padding-top:24px; border-top:1px solid #1C2E23;" class="catalog-grid">
+          <div class="product-card">
+            <div>
+              <div class="bento-tag">VAULT DROP #01 // 6 UNITS</div>
+              <h3 class="bento-title">Bespoke 6-Outlet Surge Strip 4K Node</h3>
+              <div class="bento-text-block">AC-powered covert 4K camera built into a working surge protector with continuous recording.</div>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="VAULT DROP #01: Bespoke Surge Strip 4K Node ($640)">Reserve Drop ($640) &rarr;</button>
+          </div>
+          <div class="product-card">
+            <div>
+              <div class="bento-tag">VAULT DROP #02 // THERMAL</div>
+              <h3 class="bento-title">640px Pocket Thermal Monocular</h3>
+              <div class="bento-text-block">Detect residual engine heat, hidden wall electronics, and zero-light perimeter movement.</div>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="VAULT DROP #02: Pocket Thermal Monocular ($1,190 / $195 Rent)">Buy $1,190 / Rent $195 &rarr;</button>
+          </div>
+          <div class="product-card">
+            <div>
+              <div class="bento-tag">TRADE-IN &amp; UPGRADE PROGRAM</div>
+              <h3 class="bento-title">Up to $120 Hardware Trade-In Credit</h3>
+              <div class="bento-text-block">Send in older GPS trackers or RF detectors for instant credit toward current multi-band units.</div>
+            </div>
+            <button type="button" class="btn-block btn-primary btn-sm btn-full quick-select" data-item="Hardware Trade-In & Upgrade Credit Request">Request Trade-In Credit &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: SECURE BRIEFING & ORDER FORM -->
+  <section id="briefing" class="section-block" style="border-bottom:none;">
+    <div class="container" style="max-width:860px;">
+      <div class="tool-workspace">
+        <span class="eyebrow">// 05. SECURE ORDER &amp; DISPATCH DESK</span>
+        <h2 class="section-title">Submit Tactical Briefing</h2>
+        <div class="section-subtext-block" style="margin-bottom:24px;">
+          All orders ship in unmarked plain-box packaging. Encrypted invoice links and tracking numbers are issued within 4 business hours.
+        </div>
+
+        <form id="briefing-form" novalidate>
+          <div class="form-grid" style="margin-bottom:16px;">
+            <div>
+              <label class="control-label" for="f-name">Name or Operational Alias *</label>
+              <input type="text" id="f-name" class="input-field" placeholder="e.g., Mercer Law / Alex M." required />
+            </div>
+            <div>
+              <label class="control-label" for="f-email">Secure Email Address *</label>
+              <input type="email" id="f-email" class="input-field" placeholder="name@proton.me" required />
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-bottom:16px;">
+            <div>
+              <label class="control-label" for="f-type">Engagement Type</label>
+              <select id="f-type" class="select-field">
+                <option value="Hardware Purchase">Hardware Purchase (Global Shipping)</option>
+                <option value="7-Day Tactical Rental">7-Day Tactical Rental</option>
+                <option value="On-Site TSCM Bug Sweep">On-Site TSCM Bug Sweep (Aventus PI)</option>
+                <option value="B2B / Law Firm Account">B2B / Law Firm Account (Net-30)</option>
+              </select>
+            </div>
+            <div>
+              <label class="control-label" for="f-gear">Selected Kit / Hardware Code</label>
+              <input type="text" id="f-gear" class="input-field font-mono" placeholder="Auto-filled from Interactive Tools or Catalog" />
+            </div>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <label class="control-label" for="f-notes">Operational Notes &amp; Delivery Location *</label>
+            <textarea id="f-notes" rows="4" class="textarea-field" placeholder="Specify environment (vehicle, home, office), timeline, or shipping country..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-block btn-primary btn-full">Transmit Encrypted Briefing &rarr;</button>
+        </form>
+
+        <div id="briefing-receipt" style="display:none; margin-top:20px; padding:18px; background:#050806; border:2px solid #00FF41; border-radius:4px;" class="font-mono">
+          <div style="color:#00FF41; font-weight:800; font-size:13px; margin-bottom:6px;">
+            &#10003; BRIEFING TRANSMITTED // REF: <span id="ref-code">SSG-9042</span>
+          </div>
+          <div style="font-size:12px; color:#D4E2D8;">
+            Confirmation and encrypted invoice details will be dispatched to <strong id="ref-email" style="color:#FFFFFF;"></strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATRIX CODE RAIN FOOTER -->
+  <footer class="matrix-footer">
+    <canvas id="matrix-footer-canvas" aria-hidden="true"></canvas>
+    <div class="footer-overlay" aria-hidden="true"></div>
+
+    <div class="container footer-content">
+      <div class="footer-cols">
+        <div>
+          <div class="brand-title" style="font-size:22px;">SPY SHOP <span>GLOBAL</span></div>
+          <div class="brand-sub" style="margin-bottom:14px;">INTELLIGENCE. DELIVERED.</div>
+          <div class="section-subtext-block" style="font-size:12px;">
+            Professional counter-surveillance hardware, covert optics, and telemetry backed by licensed investigators at Aventus Investigations Inc.
+          </div>
+        </div>
+
+        <div>
+          <div class="control-label">Interactive Tools</div>
+          <ul class="footer-list">
+            <li><a href="#mission-builder">Mission Loadout Builder</a></li>
+            <li><a href="#mission-builder">Frequency &amp; Bug Finder</a></li>
+            <li><a href="#mission-builder">Vehicle &amp; Hotel Sweep Maps</a></li>
+            <li><a href="#mission-builder">B2B / Law Firm Quote Calc</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="control-label">Hardware &amp; Ops</div>
+          <ul class="footer-list">
+            <li><a href="#catalog">RF &amp; IR Lens Detectors</a></li>
+            <li><a href="#catalog">7-Day Tactical Rentals</a></li>
+            <li><a href="#vault">Top Secret Drop Vault</a></li>
+            <li><a href="#briefing">On-Site PI Bug Sweeps</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="control-label">Official Channels</div>
+          <ul class="footer-list">
+            <li><a href="https://instagram.com/spyshopglobal" target="_blank" rel="noopener noreferrer">Instagram @spyshopglobal</a></li>
+            <li style="font-size:12px; color:#8FA395;">PI Partner: @aventusinvestigations</li>
+            <li style="font-size:11px; color:#8FA395;">Buyer assumes responsibility for compliance with local recording &amp; tracking laws.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="padding-top:24px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-family:'JetBrains Mono'; font-size:11px; color:#8FA395;">
+        <div>&copy; <span id="yr"></span> SPY SHOP GLOBAL. ALL RIGHTS RESERVED.</div>
+        <div style="color:#00FF41;">MATRIX STREAM: ACTIVE // DISCREET GLOBAL SHIPPING</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // Mobile Menu Toggle
+      const mobBtn = document.getElementById('mobile-toggle');
+      const mobDrawer = document.getElementById('mobile-drawer');
+      mobBtn.addEventListener('click', () => {
+        const open = mobDrawer.classList.toggle('open');
+        mobBtn.setAttribute('aria-expanded', String(open));
+        mobBtn.textContent = open ? 'CLOSE' : 'MENU';
+      });
+
+      // Live UTC Clock
+      const utcEl = document.getElementById('live-utc');
+      setInterval(() => {
+        utcEl.textContent = new Date().toISOString().substring(11, 19) + ' UTC';
+      }, 1000);
+
+      // Matrix Rain Renderer (Hero & Footer)
+      const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテト';
+      function runMatrix(canvasId, speed, fontSize) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let cols = 0;
+        let drops = [];
+
+        function resize() {
+          const rect = canvas.parentElement.getBoundingClientRect();
+          canvas.width = rect.width;
+          canvas.height = rect.height;
+          cols = Math.floor(canvas.width / fontSize);
+          drops = Array.from({ length: cols }, () => Math.random() * -30);
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        setInterval(() => {
+          ctx.fillStyle = 'rgba(3, 5, 4, 0.1)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.font = '700 ' + fontSize + 'px "JetBrains Mono", monospace';
+          for (let i = 0; i < drops.length; i++) {
+            const ch = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillStyle = Math.random() > 0.92 ? '#FFFFFF' : '#00FF41';
+            ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+              drops[i] = 0;
+            }
+            drops[i] += speed;
+          }
+        }, 42);
+      }
+
+      runMatrix('matrix-hero-canvas', 0.75, 15);
+      runMatrix('matrix-footer-canvas', 0.55, 14);
+
+      // 11-Tool Switcher Tabs
+      const tabBtns = document.querySelectorAll('.tool-tab-btn');
+      const toolViews = document.querySelectorAll('.tool-view');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          toolViews.forEach(v => v.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.dataset.target).classList.add('active');
+          if (btn.dataset.target === 'view-fov') renderFOV();
+        });
+      });
+
+      function jumpToBriefing(gearText, typeText) {
+        document.getElementById('f-gear').value = gearText;
+        if (typeText) document.getElementById('f-type').value = typeText;
+        document.getElementById('briefing').scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // 01. Mission Loadout Builder
+      const kits = {
+        vehicle: {
+          code: 'KIT-VEH-01',
+          title: 'Vehicle Counter-Tracking Kit',
+          price: 449,
+          items: [
+            '+ SSG-RF900 Wideband RF & GPS Bug Detector',
+            '+ Under-Chassis Inspection Mirror + Tactical LED',
+            '+ Dual-Layer Faraday Keyfob & Phone Shield'
+          ]
+        },
+        office: {
+          code: 'KIT-TSCM-02',
+          title: 'Home / Office Bug Sweep Kit',
+          price: 689,
+          items: [
+            '+ SSG-RF900 Pro Spectrum & IR Lens Finder',
+            '+ Non-Linear Outlet & Thermal Anomaly Probe',
+            '+ Executive Room Sweep Checklist SOP'
+          ]
+        },
+        covert: {
+          code: 'KIT-OPT-03',
+          title: 'Covert Property Monitoring Bundle',
+          price: 549,
+          items: [
+            '+ SSG-SMK4K Smoke Detector 4K Pinhole Optic',
+            '+ 128GB High-Endurance Encrypted MicroSD',
+            '+ Mobile Instant Motion Alert Bridge'
+          ]
+        },
+        speech: {
+          code: 'KIT-SPCH-04',
+          title: 'Boardroom Speech Privacy Kit',
+          price: 759,
+          items: [
+            '+ SSG-JAM360 Ultrasonic Anti-Recording Jammer',
+            '+ Executive Faraday Phone & Laptop Enclosure',
+            '+ Conference Room Sweep Checklist SOP'
+          ]
+        }
+      };
+
+      let activeScen = 'vehicle';
+      let rentMode = false;
+
+      function refreshBuilder() {
+        const k = kits[activeScen];
+        const sim = document.getElementById('opt-sim').checked;
+        const simAnnual = document.getElementById('opt-sim-annual').checked;
+        const pi = document.getElementById('opt-pi').checked;
+        let total = rentMode ? Math.round(k.price * 0.2) : k.price;
+        if (simAnnual) total += 279;
+        if (pi) total += 250;
+
+        document.getElementById('out-code').textContent = k.code + (rentMode ? '-RNT' : '');
+        document.getElementById('out-title').textContent = k.title + (rentMode ? ' (7-Day Rental)' : '');
+        const listEl = document.getElementById('out-list');
+        listEl.innerHTML = k.items.map(i => `<li>${i}</li>`).join('') +
+          (simAnnual ? '<li style="color:#00FF41;">+ 12-Month Prepaid Global 4G SIM ($279/yr)</li>' : '') +
+          (pi ? '<li style="color:#00FF41;">+ Aventus Investigations On-Site PI / Rush Briefing</li>' : '');
+        document.getElementById('out-price').textContent = '$' + total;
+        document.getElementById('out-sub').textContent = simAnnual ? 'Annual SIM included upfront' : (sim ? '+ $29/mo telemetry plan' : 'No recurring subscription');
+      }
+
+      document.querySelectorAll('#view-builder .choice-card').forEach(card => {
+        card.addEventListener('click', () => {
+          document.querySelectorAll('#view-builder .choice-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          activeScen = card.dataset.scen;
+          refreshBuilder();
+        });
+      });
+
+      document.getElementById('acq-buy').addEventListener('click', (e) => {
+        rentMode = false;
+        e.target.classList.add('selected');
+        document.getElementById('acq-rent').classList.remove('selected');
+        refreshBuilder();
+      });
+
+      document.getElementById('acq-rent').addEventListener('click', (e) => {
+        rentMode = true;
+        e.target.classList.add('selected');
+        document.getElementById('acq-buy').classList.remove('selected');
+        refreshBuilder();
+      });
+
+      ['opt-sim', 'opt-sim-annual', 'opt-pi'].forEach(id => {
+        document.getElementById(id).addEventListener('change', refreshBuilder);
+      });
+
+      document.getElementById('send-manifest-btn').addEventListener('click', () => {
+        const title = document.getElementById('out-title').textContent;
+        const price = document.getElementById('out-price').textContent;
+        jumpToBriefing(`${title} — Est. ${price}`, rentMode ? '7-Day Tactical Rental' : 'Hardware Purchase');
+      });
+
+      // 02. TSCM Calculator
+      const tscmBoxes = document.querySelectorAll('.tscm-box');
+      tscmBoxes.forEach(box => {
+        box.addEventListener('change', () => {
+          let score = 0;
+          tscmBoxes.forEach(b => { if (b.checked) score += parseInt(b.value, 10); });
+          document.getElementById('tscm-score-val').textContent = score + ' / 100';
+          const statusEl = document.getElementById('tscm-status');
+          const descEl = document.getElementById('tscm-desc');
+          if (score >= 50) {
+            statusEl.textContent = 'HIGH THREAT — LICENSED PI SWEEP ADVISED';
+            statusEl.style.color = '#FF3B3B';
+            descEl.textContent = 'Multiple active indicators present. Schedule an on-site Aventus Investigations TSCM bug sweep immediately.';
+          } else if (score >= 20) {
+            statusEl.textContent = 'MODERATE EXPOSURE — RF & LENS SWEEP KIT';
+            statusEl.style.color = '#FFB800';
+            descEl.textContent = 'Deploy the SSG-RF900 Wideband Detector to inspect outlets, vehicles, and personal electronics.';
+          } else {
+            statusEl.textContent = 'LOW EXPOSURE — PREVENTIVE SELF-SWEEP';
+            statusEl.style.color = '#00FF41';
+            descEl.textContent = 'Maintain baseline security with Faraday RF shielding and periodic room inspections.';
+          }
+        });
+      });
+
+      document.getElementById('tscm-book-btn').addEventListener('click', () => {
+        const sc = document.getElementById('tscm-score-val').textContent;
+        jumpToBriefing(`TSCM Sweep / Kit Request (Threat Score: ${sc})`, 'On-Site TSCM Bug Sweep');
+      });
+
+      // 03. Frequency Band & Bug-Type Finder
+      const bandData = {
+        wifi: {
+          band: 'TARGET RF BAND: 2.4 GHz & 5.8 GHz IEEE 802.11 BURSTS',
+          spots: 'Smoke alarms, USB wall blocks, alarm clocks, router shelves, air purifiers.',
+          proto: 'Switch SSG-RF900 to 2.4/5GHz Digital Burst mode, dim room lights, and scan reflective glass with the red IR lens viewfinder.',
+          gear: 'SSG-RF900 Wideband RF & IR Lens Detector ($389)',
+          note: 'Detects active Wi-Fi packet bursts and highlights hidden camera lenses at up to 25 feet.'
+        },
+        gps: {
+          band: 'TARGET RF BAND: 700 MHz – 2100 MHz LTE / CELLULAR UPLINK',
+          spots: 'Wheel wells, rear bumper lip, undercarriage frame rails, OBD-II port.',
+          proto: 'Have a partner drive the vehicle while you sweep interior/exterior zones with the SSG-RF900 in Cellular Burst mode.',
+          gear: 'Vehicle Counter-Tracking Kit ($449)',
+          note: 'Captures periodic LTE location packets transmitted while vehicle is in motion.'
+        },
+        ble: {
+          band: 'TARGET RF BAND: 2.402 GHz – 2.480 GHz BLE ADVERTISING CHANNELS',
+          spots: 'Trunk spare-tire wells, seat pockets, backpack linings, bumper cavities.',
+          proto: 'Run an iOS/Android BLE scanner sweep alongside physical inspection with an LED mirror.',
+          gear: 'SSG-RF900 + Faraday Isolation Pouch ($429)',
+          note: 'Isolates suspected beacons inside an RF-shielded pouch before safe removal.'
+        },
+        gsm: {
+          band: 'TARGET RF BAND: 850 / 900 / 1800 / 1900 MHz GSM VOICE',
+          spots: 'Extension cords, AC wall outlets, desk undersides, conference room centerpieces.',
+          proto: 'Generate steady speech/audio in the room to trigger voice-activated (VOX) transmitters while scanning.',
+          gear: 'SSG-RF900 + SSG-JAM360 Ultrasonic Blocker ($990)',
+          note: 'Detects active cellular audio uplinks and masks room speech.'
+        },
+        wired: {
+          band: 'TARGET SIGNATURE: ZERO RF EMISSION (PASSIVE SD / HARDWIRED)',
+          spots: 'Drywall pinholes, ceiling tiles, picture frames, HVAC vents.',
+          proto: 'Since passive recorders emit zero RF, use optical lens-glint detection and thermal wall scanning.',
+          gear: '640px Pocket Thermal Monocular + IR Finder ($1,190)',
+          note: 'Reveals localized heat signatures behind drywall and optical lens reflections.'
+        }
+      };
+
+      document.getElementById('band-select').addEventListener('change', (e) => {
+        const d = bandData[e.target.value];
+        document.getElementById('band-details').innerHTML = `
+          <div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">${d.band}</div>
+          <p style="margin-bottom:8px;"><strong>Common Concealment Spots:</strong> ${d.spots}</p>
+          <p><strong>Sweep Protocol:</strong> ${d.proto}</p>
+        `;
+        document.getElementById('band-gear-title').textContent = d.gear;
+        document.getElementById('band-gear-note').textContent = d.note;
+      });
+
+      document.getElementById('band-order-btn').addEventListener('click', () => {
+        jumpToBriefing(document.getElementById('band-gear-title').textContent, 'Hardware Purchase');
+      });
+
+      // 04. Vehicle Hotspot Map
+      const carZones = {
+        wheel: 'ZONE 01: WHEEL WELLS & FENDER LINERS — Magnetic waterproof trackers are most commonly slapped onto the flat metal lip inside the rear wheel arch in under 5 seconds. Inspect with an LED mirror and sweep with SSG-RF900 while moving.',
+        bumper: 'ZONE 02: REAR BUMPER & TOW HITCH — Hollow plastic bumper cavities and steel hitch crossbars provide clear sky view for GPS satellites and easy 3-second magnetic attachment.',
+        obd: 'ZONE 03: OBD-II DIAGNOSTIC PORT — Check under the steering column for splitter cables or plug-in fleet trackers drawing continuous 12V vehicle battery power.',
+        rails: 'ZONE 04: UNDERCARRIAGE FRAME RAILS — Run a magnetic sweep and inspection mirror along the driver and passenger chassis rails behind the rocker panels.',
+        cabin: 'ZONE 05: UNDER SEATS & TRUNK LINER — Check spare tire wells, seat springs, and rear parcel shelves for battery-powered audio recorders or BLE beacons.',
+        cowl: 'ZONE 06: WINDSHIELD WIPER COWL — Plastic drainage cowls below the windshield offer direct sky visibility for GPS antennas without exposing trackers to road debris.'
+      };
+
+      document.querySelectorAll('.car-zone-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.car-zone-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('zone-readout').innerHTML = `<div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">${btn.textContent.toUpperCase()}</div><p>${carZones[btn.dataset.zone]}</p>`;
+        });
+      });
+
+      document.getElementById('veh-order-btn').addEventListener('click', () => {
+        jumpToBriefing('Vehicle Counter-Tracking Sweep Pack / On-Site Vehicle Sweep', 'Hardware Purchase');
+      });
+
+      // 05. Hotel Checklist
+      const hotelChecks = document.querySelectorAll('.hotel-chk');
+      hotelChecks.forEach(c => {
+        c.addEventListener('change', () => {
+          const count = Array.from(hotelChecks).filter(x => x.checked).length;
+          document.getElementById('hotel-progress').textContent = `${count} / 4 VERIFIED`;
+        });
+      });
+
+      document.getElementById('hotel-order-btn').addEventListener('click', () => {
+        jumpToBriefing('Executive Travel Sweep Pack ($329)', 'Hardware Purchase');
+      });
+
+      // 06. Camera FOV Simulator
+      const fovCanvas = document.getElementById('fov-sim-canvas');
+      const fovCtx = fovCanvas.getContext('2d');
+      let cx = 90, cy = 70;
+
+      function renderFOV() {
+        const w = fovCanvas.width, h = fovCanvas.height;
+        const deg = parseInt(document.getElementById('fov-model').value, 10);
+        const rot = parseInt(document.getElementById('fov-rot').value, 10);
+        const ir = document.getElementById('fov-night').checked;
+        document.getElementById('fov-deg-text').textContent = rot + '°';
+
+        fovCtx.clearRect(0, 0, w, h);
+        fovCtx.strokeStyle = 'rgba(0, 255, 65, 0.14)';
+        for (let x = 0; x < w; x += 30) { fovCtx.beginPath(); fovCtx.moveTo(x, 0); fovCtx.lineTo(x, h); fovCtx.stroke(); }
+        for (let y = 0; y < h; y += 30) { fovCtx.beginPath(); fovCtx.moveTo(0, y); fovCtx.lineTo(w, y); fovCtx.stroke(); }
+
+        fovCtx.strokeStyle = 'rgba(255,255,255,0.28)';
+        fovCtx.strokeRect(18, 18, w - 36, h - 36);
+
+        const rad = (rot * Math.PI) / 180;
+        const half = ((deg / 2) * Math.PI) / 180;
+        const r = ir ? 310 : 210;
+
+        fovCtx.beginPath();
+        fovCtx.moveTo(cx, cy);
+        fovCtx.arc(cx, cy, r, rad - half, rad + half);
+        fovCtx.closePath();
+        fovCtx.fillStyle = 'rgba(0, 255, 65, 0.28)';
+        fovCtx.fill();
+        fovCtx.strokeStyle = '#00FF41';
+        fovCtx.stroke();
+
+        fovCtx.beginPath();
+        fovCtx.arc(cx, cy, 6, 0, Math.PI * 2);
+        fovCtx.fillStyle = '#00FF41';
+        fovCtx.fill();
+      }
+
+      fovCanvas.addEventListener('click', (e) => {
+        const rect = fovCanvas.getBoundingClientRect();
+        cx = ((e.clientX - rect.left) / rect.width) * fovCanvas.width;
+        cy = ((e.clientY - rect.top) / rect.height) * fovCanvas.height;
+        renderFOV();
+      });
+
+      document.getElementById('fov-model').addEventListener('change', renderFOV);
+      document.getElementById('fov-rot').addEventListener('input', renderFOV);
+      document.getElementById('fov-night').addEventListener('change', renderFOV);
+      renderFOV();
+
+      document.getElementById('fov-select-btn').addEventListener('click', () => {
+        const sel = document.getElementById('fov-model');
+        jumpToBriefing(sel.options[sel.selectedIndex].text, 'Hardware Purchase');
+      });
+
+      // 07. SD Storage Calculator
+      function refreshStorage() {
+        const res = parseInt(document.getElementById('sd-res').value, 10);
+        const gb = parseInt(document.getElementById('sd-size').value, 10);
+        const mult = parseInt(document.getElementById('sd-mode').value, 10);
+        document.getElementById('sd-gb-text').textContent = gb + ' GB';
+        const gbPerHr = res === 2160 ? 3.8 : 1.2;
+        const rawHrs = Math.round(gb / gbPerHr);
+        const days = ((rawHrs * mult) / 24).toFixed(1);
+        document.getElementById('sd-hours-out').textContent = `${rawHrs} REC HRS / ~${days} DAYS`;
+      }
+      ['sd-res', 'sd-size', 'sd-mode'].forEach(id => {
+        document.getElementById(id).addEventListener('input', refreshStorage);
+        document.getElementById(id).addEventListener('change', refreshStorage);
+      });
+      refreshStorage();
+
+      document.getElementById('sd-order-btn').addEventListener('click', () => {
+        const gb = document.getElementById('sd-size').value;
+        jumpToBriefing(`4K Covert Camera + ${gb}GB Pre-Formatted Encrypted MicroSD`, 'Hardware Purchase');
+      });
+
+      // 08. GPS Battery Estimator
+      function refreshGPS() {
+        const mah = parseInt(document.getElementById('gps-battery').value, 10);
+        const rate = parseInt(document.getElementById('gps-rate').value, 10);
+        const hrs = parseFloat(document.getElementById('gps-hours').value);
+        const labels = { 1: 'Every 10 Seconds (Live)', 2: 'Every 60 Seconds', 3: 'Every 5 Minutes', 4: 'Motion-Triggered Only' };
+        const mult = { 1: 0.45, 2: 1.0, 3: 1.75, 4: 2.4 };
+        document.getElementById('gps-rate-text').textContent = labels[rate];
+        document.getElementById('gps-hours-text').textContent = hrs + ' Hours / Day';
+
+        if (mah === 99999) {
+          document.getElementById('gps-est-days').textContent = 'UNLIMITED';
+          return;
+        }
+        const days = Math.max(4, Math.round(((mah / 10000) * 145 * mult[rate]) / (0.65 + hrs * 0.18)));
+        document.getElementById('gps-est-days').textContent = days + ' DAYS';
+      }
+
+      document.getElementById('gps-battery').addEventListener('change', refreshGPS);
+      document.getElementById('gps-rate').addEventListener('input', refreshGPS);
+      document.getElementById('gps-hours').addEventListener('input', refreshGPS);
+
+      document.getElementById('gps-select-btn').addEventListener('click', () => {
+        const sel = document.getElementById('gps-battery');
+        jumpToBriefing(sel.options[sel.selectedIndex].text + ' + SIM Plan', 'Hardware Purchase');
+      });
+
+      // 09. Buy vs Rent vs Hire-a-PI Wizard
+      const wizOptions = {
+        court: {
+          title: 'Hire Licensed Aventus Investigator ($650+)',
+          desc: 'When evidence must hold up in court, licensed PI surveillance + certified TSCM reporting prevents chain-of-custody and admissibility challenges.',
+          type: 'On-Site TSCM Bug Sweep'
+        },
+        onetime: {
+          title: '7-Day Tactical Equipment Rental (From $79/wk)',
+          desc: 'Save 80% vs. buying outright when you only need a wideband RF detector, thermal camera, or drop optic for a 1-week verification.',
+          type: '7-Day Tactical Rental'
+        },
+        ongoing: {
+          title: 'Purchase Hardware + Annual Prepaid SIM ($279/yr)',
+          desc: 'Best ROI for continuous fleet, asset, or property monitoring with zero monthly billing friction.',
+          type: 'Hardware Purchase'
+        },
+        exec: {
+          title: 'Quarterly Corporate Privacy Retainer ($1,450/qtr)',
+          desc: 'Includes quarterly boardroom TSCM sweeps, ultrasonic anti-recording protection, and executive travel kits.',
+          type: 'B2B / Law Firm Account'
+        }
+      };
+
+      document.querySelectorAll('.wiz-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.wiz-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          const w = wizOptions[btn.dataset.wiz];
+          document.getElementById('wiz-title').textContent = w.title;
+          document.getElementById('wiz-desc').textContent = w.desc;
+          document.getElementById('wiz-action-btn').dataset.wtype = w.type;
+        });
+      });
+
+      document.getElementById('wiz-action-btn').addEventListener('click', (e) => {
+        jumpToBriefing(document.getElementById('wiz-title').textContent, e.target.dataset.wtype || 'On-Site TSCM Bug Sweep');
+      });
+
+      // 10. B2B / Law Firm Quote Calculator
+      function refreshB2B() {
+        const qty = parseInt(document.getElementById('b2b-qty').value, 10);
+        document.getElementById('b2b-qty-text').textContent = qty + ' Units';
+        let disc = 0.12, tag = '12% VOLUME TIER';
+        if (qty >= 25) { disc = 0.28; tag = '28% FLEET TIER + NET-30'; }
+        else if (qty >= 10) { disc = 0.20; tag = '20% PARTNER TIER + NET-30'; }
+        const retail = qty * 349;
+        const finalPrice = Math.round(retail * (1 - disc));
+        document.getElementById('b2b-tier-tag').textContent = tag;
+        document.getElementById('b2b-total-price').textContent = '$' + finalPrice.toLocaleString();
+        document.getElementById('b2b-savings').textContent = `You save $${(retail - finalPrice).toLocaleString()} vs. retail + Net-30 invoicing`;
+      }
+      document.getElementById('b2b-qty').addEventListener('input', refreshB2B);
+      refreshB2B();
+
+      document.getElementById('b2b-quote-btn').addEventListener('click', () => {
+        const org = document.getElementById('b2b-org').value;
+        const qty = document.getElementById('b2b-qty').value;
+        const tot = document.getElementById('b2b-total-price').textContent;
+        jumpToBriefing(`B2B Net-30 Quote: ${qty} Units for ${org} (Est. ${tot})`, 'B2B / Law Firm Account');
+      });
+
+      // 11. Regional Compliance Check
+      const regText = {
+        ca: '<div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">CANADA // CRIMINAL CODE SECTION 184 &amp; PRIVACY RULES</div><p>Audio recording is generally lawful when at least one party participating in the conversation consents (one-party consent). Video surveillance is prohibited where there is a reasonable expectation of privacy (washrooms/bedrooms), and GPS tracking should only be placed on vehicles you own or have legal authority to monitor.</p>',
+        us1: '<div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">USA // ONE-PARTY CONSENT JURISDICTIONS</div><p>Federal law (18 U.S.C. &sect; 2511) and one-party states permit recording conversations you are actively part of. Hidden cameras cannot be placed in private changing/restroom areas, and GPS trackers require vehicle ownership or authorized fleet consent.</p>',
+        us2: '<div style="color:#FFB800; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">USA // ALL-PARTY (TWO-PARTY) CONSENT STATES</div><p>States such as California, Illinois, Pennsylvania, and Washington require consent from all parties before recording private audio. Video-only security cameras in common areas remain subject to state privacy statutes.</p>',
+        eu: '<div style="color:#00FF41; font-family:'JetBrains Mono'; font-size:12px; font-weight:800; margin-bottom:6px;">UK / EU // GDPR &amp; DATA PROTECTION</div><p>Commercial and landlord surveillance requires documented legitimate interest, data minimization, and clear signage where applicable under GDPR/UK-GDPR.</p>'
+      };
+
+      document.getElementById('reg-select').addEventListener('change', (e) => {
+        document.getElementById('reg-notes').innerHTML = regText[e.target.value];
+      });
+
+      document.getElementById('reg-consult-btn').addEventListener('click', () => {
+        jumpToBriefing('Licensed PI Lawful Deployment & Compliance Consultation', 'On-Site TSCM Bug Sweep');
+      });
+
+      // Catalog Filters & Quick Select
+      document.querySelectorAll('.cat-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.cat-filter').forEach(b => {
+            b.classList.remove('btn-primary');
+            b.classList.add('btn-secondary');
+          });
+          btn.classList.remove('btn-secondary');
+          btn.classList.add('btn-primary');
+
+          const cat = btn.dataset.cat;
+          document.querySelectorAll('.product-card').forEach(card => {
+            if (!card.dataset.cat) return;
+            card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+          });
+        });
+      });
+
+      document.querySelectorAll('.quick-select').forEach(btn => {
+        btn.addEventListener('click', () => {
+          jumpToBriefing(btn.dataset.item);
+        });
+      });
+
+      // Top Secret Vault Unlock
+      document.getElementById('vault-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const code = document.getElementById('vault-pass').value.trim().toUpperCase();
+        if (code === 'INTEL26' || code === 'SPYSHOP' || code === 'AVENTUS') {
+          document.getElementById('vault-error').style.display = 'none';
+          document.getElementById('vault-items').style.display = 'grid';
+        } else {
+          document.getElementById('vault-error').style.display = 'block';
+        }
+      });
+
+      // Form Submission
+      document.getElementById('briefing-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('f-name').value.trim();
+        const email = document.getElementById('f-email').value.trim();
+        const notes = document.getElementById('f-notes').value.trim();
+        if (!name || !email.includes('@') || notes.length < 4) {
+          alert('Please enter your name/alias, a valid email, and brief operational notes.');
+          return;
+        }
+        document.getElementById('ref-code').textContent = 'SSG-' + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('ref-email').textContent = email;
+        document.getElementById('briefing-receipt').style.display = 'block';
+        e.target.reset();
+      });
+    });
+  </script>
+</body>
+</html>
